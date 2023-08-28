@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo apt-get update
           # Lots more requirements than I remember for my cloud-init VMs, thanks https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
-          sudo apt install qemu libvirt-daemon-system libvirt-clients libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev ruby-libvirt ebtables dnsmasq-base
+          sudo apt install virtualbox qemu libvirt-daemon-system libvirt-clients libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev ruby-libvirt ebtables dnsmasq-base
           curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
           sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
           sudo apt-get update && sudo apt-get install vagrant
@@ -30,6 +30,4 @@ jobs:
           vagrant init generic/ubuntu2004
           cat Vagrantfile
           vagrant plugin list
-          vagrant plugin install vagrant-libvirt
-          vagrant plugin list
-          vagrant up --provider libvirt
+          vagrant up --provider virtualbox
