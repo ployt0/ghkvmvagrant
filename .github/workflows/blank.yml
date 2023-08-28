@@ -29,4 +29,7 @@ jobs:
         run: |
           vagrant init generic/ubuntu2004
           cat Vagrantfile
+          vagrant plugin list
+          vagrant plugin install vagrant-libvirt
+          vagrant plugin list
           vagrant up --provider libvirt
